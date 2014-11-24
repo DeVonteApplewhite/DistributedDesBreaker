@@ -1,0 +1,4 @@
+This test file should be a multiple of 8 to make encryption easy.
+With the file being divisible by 8, there is no need to padd the
+block upon encryption and thus, decryption requires no extra work
+after calling the routine.
