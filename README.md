@@ -20,3 +20,12 @@ Main Components of the project:
   - Uses WorkQueue with a pool of Condor workers
   - Idea is to dispatch tasks that cover a portion of the key space to increase the
      throughput of keys per second processed.
+  - Tasks will be submitted in the form "./solver <plainblock> <cipherblock>
+    <starting key> <number of iterations>".
+    * <plainblock> is an 8-byte argument on the command line that corresponds
+      to the chunk of plaintext being processed.
+    * <cipherblock> is an 8-byte argument on the command line that corresponds
+      to the plaintext chunk that has been encrypted and is being processed.
+    * <starting key> is the starting value to check for the key at.
+    * <number of iterations> is the number of subsequent keys to process
+      starting at <starting key>.
