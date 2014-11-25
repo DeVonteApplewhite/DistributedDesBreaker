@@ -41,8 +41,10 @@ void num2uchararray(long unsigned int v, unsigned char a[8]){
 	revuchararr(a);
 }
 
-int main(int argc, char *argv[]){
-	if(argc != 3){
+//putting any value after the first 2 arguments will fix the key at 2^factor
+int main(int argc, char *argv[]){ 
+	if(argc == 4) //trapping for the special case of a fixed key value
+	{}else if(argc != 3){
 		printf("Usage:%s <input_file> <key_factor>\n",argv[0]);
 		return 1;
 	}
@@ -61,6 +63,10 @@ int main(int argc, char *argv[]){
 	long unsigned int factor = atoi(argv[2]); //factor to use 2^key_factor
 	srand48(seeder); //seed the randomizer
 	long unsigned int value = lrand48()%(1l<<factor);
+
+	if(argc == 4){ //if an extra argument, then fix the key at 2^factor
+		value = 1l<<factor; //fix at the factor value
+	}
 
 	unsigned char randkey[8];
 	memset(randkey,0,sizeof(*randkey)*8);
