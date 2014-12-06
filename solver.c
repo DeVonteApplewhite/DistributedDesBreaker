@@ -131,25 +131,25 @@ int main(int argc, char *argv[]){
 		DES_ecb_encrypt((C_Block *)cipherbuff,(C_Block *)check, &keysched, DES_DECRYPT); //decrypt the block with the current key being checked
 		if(isequaluchararray(plainbuff,check,BLOCK)){ //checking equality
 			value = start+j;
-			printf("randkey|key = %lu (with odd parity)\n",start+j);
-			for(i=0;i<8;i++){
-				printf("%03u|%03u\n",randkey[i],key[i]); //printing bytes
-			}
-			printf("\n");
+			//printf("randkey|key = %lu (with odd parity)\n",start+j);
+			//for(i=0;i<8;i++){
+			//	printf("%03u|%03u\n",randkey[i],key[i]); //printing bytes
+			//}
+			//printf("\n");
 			break; //found key so exit early
 		}
 	}
 
 	if(value != -1){ //key not found
-		printf("Key Found!\n");
-		printf("key without parity = %lu\n",value);
-		printf("true key = %lu\n",uchararray2lu(key,BLOCK));
+		printf("1,");
+		printf("%lu,",value);
+		printf("%lu,",uchararray2lu(key,BLOCK));
 		for(i=0;i<8;i++){ //print the key out
 			printf("[%03u]",key[i]);
 		}
 		printf("\n");
 	}else{
-		printf("Key not found in closed interval [%lu,%lu]\n",start,start+iterations-1);
+		printf("0,%lu,%lu,null\n",start,start+iterations-1);
 	}
 
 	close(plaintextfd); //close the files
