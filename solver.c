@@ -31,14 +31,17 @@ void revuchararr(unsigned char a[8]){
 //convert a number into an unsigned char array
 void num2uchararray(long unsigned int v, unsigned char a[8]){
 	int x = v; //get value to work with
-	int it = 0; //iterator for placing into the array
-	while(x>0 && it<8){ //while not at max array index and x is nonzero
+	int it = 7; //iterator for placing into the array
+	while(x>0 && it>=0){ //while not at max array index and x is nonzero
 		int temp = x%256; //get first 256 remainder
 		a[it] = temp; //store it
 		x /= 256; //make x smaller by a factor of 256
-		it++; //advance iterator
+		it--; //advance iterator
 	}
-	revuchararr(a); //answer is backwards, so reverse it
+	int i;
+	for(i=it;i>=0;i--){
+		a[i] = 0; //zero rest of array
+	}	
 }
 
 //checks if two unsigned char arrays are equal
@@ -116,16 +119,16 @@ int main(int argc, char *argv[]){
 	unsigned long int iterations = atol(argv[4]); //get number of iterations
 	unsigned long int j;
 
-	unsigned char randkey[8]; //random key to work with
-	memset(randkey,0,sizeof(*randkey)*8); //zero the random key
+	//unsigned char randkey[8]; //random key to work with
+	//memset(randkey,0,sizeof(*randkey)*8); //zero the random key
 
 	unsigned long int value = -1; //the correct key
 	for(j=0;j<iterations;j++){
-		memset(randkey,0,sizeof(*randkey)*8); //zero random key
-		num2uchararray(start+j,randkey); //turn number into actual key
-		for(i=0;i<8;i++){ //copy the number into the key.
-			key[i] = randkey[i]; //put values in the key structure
-		}
+		//memset(randkey,0,sizeof(*randkey)*8); //zero random key
+		num2uchararray(start+j,key); //turn number into actual key
+		//for(i=0;i<8;i++){ //copy the number into the key.
+		//	key[i] = randkey[i]; //put values in the key structure
+		//}
 		DES_set_odd_parity(&key); //set odd parity on key
 		DES_set_key((C_Block *)key, &keysched); //expand the key for speed
 		DES_ecb_encrypt((C_Block *)cipherbuff,(C_Block *)check, &keysched, DES_DECRYPT); //decrypt the block with the current key being checked
