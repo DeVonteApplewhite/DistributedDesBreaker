@@ -29,8 +29,8 @@ void revuchararr(unsigned char a[8]){
 	}
 }
 
-void num2uchararray(long unsigned int v, unsigned char a[8]){
-	int x = v;
+void num2uchararray(unsigned long int v, unsigned char a[8]){
+	unsigned long int x = v;
 	int it = 0;
 	while(x>0 && it<8){
 		int temp = x%256;
@@ -59,10 +59,10 @@ int main(int argc, char *argv[]){
 	memset(back, 0, sizeof(back));
  
 	srand(time(NULL)); //seed the rand() randomizer using time
-	long int seeder = rand();
-	long unsigned int factor = atoi(argv[2]); //factor to use 2^key_factor
+	unsigned long int seeder = rand();
+	unsigned long int factor = atoi(argv[2]); //factor to use 2^key_factor
 	srand48(seeder); //seed the randomizer
-	long unsigned int value = lrand48()%(1l<<factor);
+	unsigned long int value = lrand48()%(1l<<factor);
 
 	if(argc == 4){ //if an extra argument, then fix the key at 2^factor
 		value = 1l<<factor; //fix at the factor value
