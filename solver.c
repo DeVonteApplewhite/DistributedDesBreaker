@@ -66,7 +66,7 @@ int isequaluchararray(unsigned char a[], unsigned char b[], int size){
 //convert a unsigned char array into an unsigned long
 unsigned long int uchararray2lu(unsigned char a[], int size){
 	unsigned long int ans = 0; //set up answer
-	unsigned int base = 256; //unsigned char is 8 bytes so use base 256
+	unsigned long int base = 256; //uchar is 8 bytes so use base 256
 	int i;
 	for(i=0;i<size;i++){
 		unsigned long int adjbase = 1; //adjusted base for iteration 
