@@ -29,8 +29,8 @@ void revuchararr(unsigned char a[8]){
 }
 
 //convert a number into an unsigned char array
-void num2uchararray(long unsigned int v, unsigned char a[8]){
-	int x = v; //get value to work with
+void num2uchararray(unsigned long int v, unsigned char a[8]){
+	unsigned long int x = v; //get value to work with
 	int it = 0; //iterator for placing into the array
 	while(x>0 && it<8){ //while not at max array index and x is nonzero
 		int temp = x%256; //get first 256 remainder
@@ -55,7 +55,7 @@ int isequaluchararray(unsigned char a[], unsigned char b[], int size){
 //convert a unsigned char array into an unsigned long
 unsigned long int uchararray2lu(unsigned char a[], int size){
 	unsigned long int ans = 0; //set up answer
-	unsigned int base = 256; //unsigned char is 8 bytes so use base 256
+	unsigned long int base = 256; //uchar is 8 bytes so use base 256
 	int i;
 	for(i=0;i<size;i++){
 		unsigned long int adjbase = 1; //adjusted base for iteration 
