@@ -1,0 +1,75 @@
+Locally:
+Locally Optimized:
+Distributed (No Optimizations Remotely - Using 40 workers, 30 Tasks Key Size: 30): 45.83 seconds
+Distributed (Optimization 1: Termination Early - Using 40 Workers, 30 Tasks KeySize:30): 1:07 min:secs - 37.65 seconds
+Distributed (Optimization 2 Cores Un): 8:44 (Terminated Early)
+Distributed (Optimization 3 Memory Un): 43.06
+Distributed (Optimization 4 Disk Un): 1:26.94
+Distributed (Optimization 2 Cores Spec): 36.09
+Distributed (Optimization 3 Memory Spec): 38.74
+Distributed (Optimization 4 Disk Spec):32.56
+Distributed (Optimization 5 Architecture): Not Necessary
+All Remote Optimizations (Minus Early Leave): 32.70
+...
+All Remote Optimizations Using 40 Workers, 30 Tasks, Key Size 40: 37:01
+
+
+30 Key Size 30 Tasks, 40 Workers, All Remote + Local x 2: 40.91
+40 Key Size 30 Tasks, 40 Workers, All Remote + Local x 2: 37:19.74
+40 Key Size 40 Tasks, 40 Workers, All Remote + Local x2:  36:08.27
+All Runs Above Assume the Use of Fake Keys as such they can terminate earlier (for finding a full key that matches the true key) but also do a lot of
+useless checking
+
+Early Exit: Old Local: 1:33.45   -- 40 Key size, 30 Tasks, 40 Jobs
+Early Exit: New Local: 0:43.00   -- 40 Key Size, 30 Tasks, 40 Jobs
+Those written aboved used 2 Cores, 100 MB, 1GB for Cores, Memory, and Disk Spec/Unspec
+ 
+New Local: Early Exit 40 Key Size, 30 Tasks, 40 Jobs, 500MB: 0:42.53
+New Local: 40 Key Size, 30 Tasks, 40 Jobs, 500MB: 32:04.65
+
+
+
+All Local Optimizations (Threaded Fully) - Early Exit Off
+40 Key Size, Cores=2, 40 Workers, 40 Tasks, Disk=1GB, Memory=500MB: 43+ minutes
+40 Key Size, Cores=4, 40 Workers, 40 Tasks, Disk=1GB, Memory=500MB:
+40 Key Size, Cores=8, 40 Workers, 40 Tasks, Disk=1GB, Memory=500MB:
+
+30 Key Size, Cores=2, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:0:27.01
+30 Key Size, Cores=4, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:0:26.32
+30 Key Size, Cores=8, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:0:14.31
+
+20 Key Size, Cores=2, 40 Workers, 20 Tasks, Disk=1GB, Memory=500MB:0:10.26
+20 Key Size, Cores=4, 40 Workers, 20 Tasks, Disk=1GB, Memory=500MB:0:06.98
+20 Key Size, Cores=8, 40 Workers, 20 Tasks, Disk=1GB, Memory=500MB:0:08.12
+
+10 Key Size, Cores=2, 40 Workers, 10 Tasks, Disk=1GB, Memory=500MB:0:01.54
+10 Key Size, Cores=4, 40 Workers, 10 Tasks, Disk=1GB, Memory=500MB:0:01.26
+10 Key Size, Cores=8, 40 Workers, 10 Tasks, Disk=1GB, Memory=500MB:0:01.19
+
+
+
+30 Key Size, Cores=2, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:0:27.01
+30 Key Size, Cores=4, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:0:26.32
+30 Key Size, Cores=8, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:0:14.31
+
+20 Key Size, Cores=2, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:
+20 Key Size, Cores=4, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:
+20 Key Size, Cores=8, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:
+
+10 Key Size, Cores=2, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:
+10 Key Size, Cores=4, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:
+10 Key Size, Cores=8, 40 Workers, 30 Tasks, Disk=1GB, Memory=500MB:
+
+
+
+30 Key Size, Cores=8, 40 Workers, 20 Tasks, Disk=1GB, Memory=500MB:
+30 Key Size, Cores=8, 40 Workers, 40 Tasks, Disk=1GB, Memory=500MB:0:29.79
+30 Key Size, Cores=8, 40 Workers, 80 Tasks, Disk=1GB, Memory=500MB:
+30 Key Size, Cores=8, 40 Workers, 160 Tasks, Disk=1GB, Memory=500MB:
+30 Key Size, Cores=8, 40 Workers, 320 Tasks, Disk=1GB, Memory=500MB:
+
+
+
+
+
+
