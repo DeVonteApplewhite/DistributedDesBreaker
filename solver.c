@@ -37,8 +37,8 @@ void revuchararr(unsigned char a[8]){
 }
 
 //convert a number into an unsigned char array
-void num2uchararray(long unsigned int v, unsigned char a[8]){
-	long unsigned int x = v; //get value to work with
+void num2uchararray(unsigned long int v, unsigned char a[8]){
+	unsigned long int x = v; //get value to work with
 	int it = 7; //iterator for placing into the array
 	while(x>0 && it>=0){ //while not at max array index and x is nonzero
 		int temp = x%256; //get first 256 remainder
